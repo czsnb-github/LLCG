@@ -1,4 +1,4 @@
-#ifndef IST_NODE_H
+#ifndef LIST_NODE_H
 #define LIST_NODE_H
 
 struct ListNode {
