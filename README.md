@@ -15,6 +15,8 @@ Please contact me with any comments or suggestions.
 
 ## Example
 
+[Two_Sum](https://leetcode.cn/problems/two-sum/)
+
 ### Before
 
 in **code/input.cpp**
