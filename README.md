@@ -11,7 +11,7 @@ Please contact me with any comments or suggestions.
 1. Place your LeetCode-style code into **code/input.cpp**
 2. Place your test case into **code/input.txt** (copy and paste from LeetCode is recommended)
 3. run `python main.py`
-4. **code/output.cpp** is code that can be run locally!
+4. **code/output.cpp** can be run locally!
 
 ## Example
 
