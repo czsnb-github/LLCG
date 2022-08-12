@@ -4,22 +4,20 @@
 
 Local Leetcode Code Generator (a.k.a., LLCG) is a code generator that generates LeetCode-style code to run locally.
 
-Please contact me with any comments or suggestions.
+Please feel free to contact me to give any comments or suggestions.
 
 ## Quick Start
 
 1. Place your LeetCode-style code into **code/input.cpp**
 2. Place your test case into **code/input.txt** (copy and paste from LeetCode is recommended)
-3. run `python main.py`
+3. Run `python main.py`
 4. **code/output.cpp** can be run locally!
 
 ## Example
 
 [Two_Sum](https://leetcode.cn/problems/two-sum/)
 
-### Before
-
-in **code/input.cpp**
+First, write your Solution here in **code/input.cpp**.
 
 ```cpp
 class Solution {
@@ -41,7 +39,7 @@ public:
 };
 ```
 
-in **code/input.txt** 
+And then paste your test case into **code/input.txt**.
 
 ```
 [2,7,11,15]
@@ -52,9 +50,7 @@ in **code/input.txt**
 6
 ```
 
-### After
-
-in **code/output.cpp**
+Run `python main.py` and **code/output.cpp** will be generated.
 
 ```cpp
 #include "template/template.h"
@@ -95,7 +91,7 @@ int main() {
 }
 ```
 
-build and run **code/output.cpp**, get following output
+Build and run **code/output.cpp**, and you will get following output:
 
 ```
 [1, 0]
