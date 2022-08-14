@@ -3,6 +3,7 @@
 
 #include <bits/stdc++.h>
 
+#include "list.h"
 #include "list_node.h"
 #include "output.h"
 #include "tree_node.h"
