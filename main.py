@@ -47,9 +47,19 @@ def call_func(func_name, para_type, data):
 
         if val[0] != '{':
             val = '{' + val + '}'
+
         if t == 'ListNode*':
             t = 'List'
             arg = arg + '.head'
+        elif t == 'TreeNode*':
+            t = 'Tree'
+            arg = arg + '.root'
+
+            # convert to string
+            if val != '{}':
+                val = val.replace(
+                    '{', '{"').replace('}', '"}').replace(',', '","')
+
         code_part += '\t' + f'{t} var{var_id}{val};' + '\n'
         args.append(arg)
     args = ', '.join(args)
@@ -58,7 +68,7 @@ def call_func(func_name, para_type, data):
 
 
 if __name__ == '__main__':
-    input_cpp_file = open('code/input.cpp', 'r')
+    input_cpp_file = open('code/input.cpp', 'r', encoding='utf-8')
     solution_name = 'solution'
     var_id = 0
 
