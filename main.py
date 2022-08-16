@@ -38,14 +38,21 @@ def get_para_type(words, func_name):
 def call_func(func_name, para_type, data):
     global var_id, solution_name
     code_part = ''
+    args = []
     for (t, v) in zip(para_type, data):
         var_id += 1
+
         val = v.replace('[', '{').replace(']', '}')
+        arg = 'var' + str(var_id)
+
         if val[0] != '{':
             val = '{' + val + '}'
+        if t == 'ListNode*':
+            t = 'List'
+            arg = arg + '.head'
         code_part += '\t' + f'{t} var{var_id}{val};' + '\n'
-    args = ', '.join(f'var{id}' for id in range(
-        var_id - len(data) + 1, var_id + 1))
+        args.append(arg)
+    args = ', '.join(args)
     code_part += '\t' + f'print({solution_name}->{func_name}({args}));' + '\n'
     return code_part
 
@@ -70,6 +77,7 @@ if __name__ == '__main__':
 
     code = '#include \"template/template.h\"' + '\n'
     code += ''.join(input_lines)
+    code += '\n'
 
     if class_name == "Solution":
         code += f'Solution* {solution_name};' + '\n' + \
@@ -77,6 +85,7 @@ if __name__ == '__main__':
 
         main_func_name = max(func_name_list, key=len)
         para_type_list = get_para_type(words, main_func_name)
+        print(main_func_name, para_type_list)
         if len(data) % len(para_type_list) > 0:
             raise RuntimeError('mismatch between parameters and data')
         for i in range(len(data) // len(para_type_list)):
