@@ -90,22 +90,32 @@ if __name__ == '__main__':
     code += '\n'
 
     if class_name == "Solution":
-        code += f'Solution* {solution_name};' + '\n' + \
-            "int main() {" + '\n'
+        code += f'Solution* {solution_name};' + '\n'
+        code += 'Timer timer;' + '\n'
+        code += "int main() {" + '\n'
 
         main_func_name = max(func_name_list, key=len)
         para_type_list = get_para_type(words, main_func_name)
         print(main_func_name, para_type_list)
+
         if len(data) % len(para_type_list) > 0:
             raise RuntimeError('mismatch between parameters and data')
+        case_list = []
         for i in range(len(data) // len(para_type_list)):
-            code += '\t' + f'{solution_name} = new Solution();' + '\n'
+            case = ''
+            case += '\t' + 'timer.start();' + '\n'
+            case += '\t' + f'{solution_name} = new Solution();' + '\n'
             l_pos = i * len(para_type_list)
             r_pos = l_pos + len(para_type_list)
-            code += call_func(main_func_name,
+            case += call_func(main_func_name,
                               para_type_list, data[l_pos: r_pos])
-            code += '\t' + f'delete {solution_name};' + '\n'
+            case += '\t' + f'delete {solution_name};' + '\n'
 
+            case += '\t'
+            case += 'print(\"Runtime: \" + to_string(timer.end()) + \" ms\");'
+            case += '\n'
+            case_list.append(case)
+        code += '\n'.join(case_list)
     code += '}'
     print(class_name)
     print(func_name_list)
