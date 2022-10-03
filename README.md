@@ -20,6 +20,39 @@ Please feel free to contact me to give any comments or suggestions.
 First, write your Solution here in **code/input.cpp**.
 
 ```cpp
+class Solution {
+public:
+    map<int, int> a;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> ans;
+        for (int i = 0; i < n; ++i) {
+            int v = target - nums[i];
+            if (a.count(v)) {
+                ans = {i, a[v]};
+                break;
+            }
+            a[nums[i]] = i;
+        }
+        return ans;
+    }
+};
+```
+
+And then paste your test case into **code/input.txt**.
+
+```
+[2,7,11,15]
+9
+[3,2,4]
+6
+[3,3]
+6
+```
+
+Run `python main.py` and **code/output.cpp** will be generated.
+
+```cpp
 #include "template/template.h"
 class Solution {
  public:
