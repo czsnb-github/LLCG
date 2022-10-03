@@ -1,0 +1,6 @@
+.vscode
+.editorconfig
+*.exe
+code/input.cpp
+code/input.txt
+code/output.cpp
