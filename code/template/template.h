@@ -6,7 +6,7 @@
 #include "list.h"
 #include "list_node.h"
 #include "output.h"
-#include "timer.h"
+#include "stopwatch.h"
 #include "tree.h"
 #include "tree_node.h"
 

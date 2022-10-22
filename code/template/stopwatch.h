@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Timer {
+class Stopwatch {
   using clock_type = chrono::time_point<std::chrono::steady_clock>;
   clock_type startTimestamp;
 
